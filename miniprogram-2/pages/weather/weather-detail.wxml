@@ -1,0 +1,43 @@
+<view>
+<image class="bcg" src="/images/timgA7PUY29S.jpg"></image>
+<view class="section">
+  <view class="section__title"></view>
+  <picker mode="region" bindchange="bindCityChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      <image src="/images/add.png" class="locate"></image>
+    </view>
+  </picker>
+ </view>
+ <view class="xin">
+
+  <view class="xin-list" bindtouchend="moveItem" bindtouchstart="moveStart">
+    <block wx:for="{{cardList}}" wx:key="key" wx:for-index="index">
+      <view class="single" style="opacity:{{item.display}};transform: translateX({{item.slateX}}) scale({{item.scale}});z-index:{{item.zIndex}};transform-origin: 100% 50% 0;{{item.style}}">
+        <view class="xin-body" style="background:{{item.viewBg}};" bindlongpress="deleteCityBtn" data-index="{{index}}">
+          <view class="city" >
+            城市:{{item.city}}
+          </view>
+          <view class="aqi">
+            {{item.aqi}}
+          </view>
+          <view class="aqiGrade">  
+            {{item.aqiGrade}}
+          </view>
+          <view class="pm250">
+            PM2.5:</view>
+          <view class= "pm25">
+            {{item.pm25}}
+          </view>
+          <view class= "tips">
+          温馨提示:{{item.tips}}
+          </view>
+          <!-- <view>
+<button class="button-site" bindtap="deleteArray">shanchu</button></view> -->
+        </view>
+        <view class="xin-xie"></view>
+      </view>
+    </block>
+  </view>
+ </view>
+ 
+</view> 
